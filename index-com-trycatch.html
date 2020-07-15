@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Try Catch</title>
+</head>
+<body>
+  <form action="">
+    <input type="text" name="name" placeholder="Digite seu nome">
+    <input type="number" name="phone" placeholder="Digite seu celular">
+    <button type="submit">Enviar</button>
+  </form>
+  <script>
+    const validate = function (event) {
+      try {
+        event.preventDefault()
+        const form = this
+        if (form.name.value == '') throw 'Preencha o seu nome'
+        if (form.name.value.length < 3) throw 'Seu nome deve conter ao menos 3 caracteres'
+        if (form.phone.value == '') throw 'Preencha o seu telefone'
+        if (form.phone.value.length < 11) throw 'Seu telefone deve conter 11 caracteres'
+
+        alert('Mensagem enviada com sucesso')
+      } catch (error) {
+        alert(error)
+      }
+    }
+
+    document.querySelector('form').addEventListener('submit', validate)
+  </script>
+</body>
+</html>
